@@ -21,10 +21,10 @@ def race(phrase):
     acc = (len(wordLst) * 100) / wrotedWords
     print("Accuracy: {:.1f}%".format(acc))  # accuracy %
 
-    wps = len(wordLst) / float(duration)    # WPS = words per second
-    print("WPS: {:.2f} ".format(wps))   # time elapsed
+    wps = len(wordLst) / float(duration)
+    print("WPS: {:.2f} words per second".format(wps))   # WPS = words per second
     wpm = wps*60
-    print("WPM: {:.2f}".format(wpm))    # WPM = words per minute
+    print("WPM: {:.2f} words per minute".format(wpm))    # WPM = words per minute
 
 
 def askStr(palavra):
