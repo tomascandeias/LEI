@@ -1,4 +1,13 @@
 import time
+import os
+
+def fileSetUp(fname):
+    s = ""
+    with open(fname) as f:
+        for line in f:
+          s += line
+    return s
+
 
 def race(phrase):
     print(phrase)
@@ -53,8 +62,15 @@ def askStr(palavra):
     else:
         return wroted_words
 
+
 def main():
     print("--->WELCOME TO THE TYPERACER<--")
-    race("I have a command line program")
+    while True:
+        fname = str(input("File name: "))
+        if (fname[len(fname)-4:len(fname)]) == ".txt":
+            text = fileSetUp(fname)
+            break
+
+    race(text)
 
 main()
