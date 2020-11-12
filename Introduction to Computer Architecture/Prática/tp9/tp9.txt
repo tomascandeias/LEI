@@ -1,0 +1,50 @@
+-->2<--
+a)
+OpCode	Rs	Rt	Rd	Shamt	Funct
+00000	01001	01001	01011	00000	100000
+
+b)									ReadData/	ReadData2/
+Step	ReadReg1	ReadReg2	WriteReg	Write Data	ALUInp1		ALUInp2		ALUCtrl		Result
+4	5		5		0		X		X		X		010		X
+6	5		5		0		X		5		5		010		X
+7	5		5		0		10		5		5		010		10
+8	5		5		10		10		5		5		010		10
+
+c)
+Step	RegWrite	$t1	$t3
+4	1		5	0
+6	1		5	0
+7	1		5	0
+8	1		5	10
+
+-->3<--
+a)
+OpCode	Rs	Rt	Imm16
+31:26	25:21	20:16	15:0
+-----------------------------
+100011	01000	01101	1111111111111100
+(35)			(-4)
+
+Endereço de memória: 36
+$t5 = 20
+
+b)
+Instr	Op	RegWrite	RegDst	AluSrc	Branch	MemWrite	MemRead	MemToReg	ALUOp	ALUCtrl
+sw	101001	0 (CX)		0 (X)	1	0	1		0	0 (X)		00	010
+lw	100011	1		0	1	0	0		1	1		00	010
+beq	000100	0 (CX)		0 (X)	0	1	0		0	0 (X)		01	110
+
+-->4<--
+
+a)
+31:26 (op)	25:0 (imm26)
+000010		00000000000000000000000010
+
+
+b)
+Instr	Op	RegWrite	RegDst	AluSrc	Branch	Jump	MemWrite	MemToReg	ALUOp	ALUCtrl
+addi	001000	1		0	1	0	0	0		0		11	010
+j	000010	0 (CX)		0 (X)	0	0	1	0		0 (X)		00	010
+
+
+
